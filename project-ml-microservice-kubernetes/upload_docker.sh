@@ -6,6 +6,7 @@
 # Step 1:
 # Create dockerpath
 # dockerpath=<your docker ID/path>
+dockerpath="mukulbapna/udacity-prediction"
 
 # Step 2:  
 # Authenticate & tag
@@ -13,3 +14,6 @@ echo "Docker ID and Image: $dockerpath"
 
 # Step 3:
 # Push image to a docker repository
+docker login
+docker tag mbscale/udacityprediction:latest $dockerpath:latest
+docker push $dockerpath:latest
