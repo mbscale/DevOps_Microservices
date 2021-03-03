@@ -1,1 +1,40 @@
-<paste log output from Kubernetes-mediated prediction, here>
+////////TERMINAL 1 OUTPUT//////////////////
+
+Authenticating with existing credentials...
+WARNING! Your password will be stored unencrypted in /home/ubuntu/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+error: failed to create deployment: deployments.apps "prediction-as-a-pod" already exists
+NAME                  READY   UP-TO-DATE   AVAILABLE   AGE
+prediction-as-a-pod   1/1     1            1           91s
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+
+Handling connection for 8000
+
+
+////////TERMINAL 2 OUTPUT//////////////////
+
+* Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 129-516-115
+[2021-03-03 13:47:07,633] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2021-03-03 13:47:07,647] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-03-03 13:47:07,660] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-03-03 13:47:07,665] INFO in app: Prediction Value: 
+[20.35373177134412]
+127.0.0.1 - - [03/Mar/2021 13:47:07] "POST /predict HTTP/1.1" 200 -
