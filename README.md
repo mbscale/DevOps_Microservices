@@ -123,12 +123,21 @@ That's about it! When working with kubernetes, you may need
 to install some other libraries, but these instructions will set you up with an environment that can build and deploy Docker containers.
 
 circleci/config.yml - The config yml for the CircleCI build
+
 /model_data/housing.csv - The data from kaggle for the python app
+
 output_txt_files/ - Output files of logs from the ML API running in the docker and kubernetes deployments
+
 app.py - The ML API
+
 Dockerfile - The docker file. It creates a custom image of a base python image, copies the necessary python and data files.
+
 Makefile - A Makefile with steps for virtual environment setup, python package installation, and dockerfile/python linting.
+
 make_prediction.sh - shell script to call the api to get a prediction back
+
 run_docker.sh - builds the docker image and then runs it
+
 run_kubernetes.sh - runs the docker image and deploys it to kubernetes
+
 upload_docker.sh - pushes the docker image to docker hub.
